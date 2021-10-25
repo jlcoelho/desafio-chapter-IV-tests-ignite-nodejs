@@ -4,10 +4,10 @@ enum OperationType {
   TRANSFER = 'transfer'
 }
 
-export interface ICreateStatementDTO {
+export interface ICreateTransferAccountDTO {
   user_id: string;
   description: string;
   amount: number;
-  sender_id?: string;
+  sender_id: string;
   type: OperationType
 }

@@ -28,7 +28,12 @@ export class accountsTable1616682561481 implements MigrationInterface {
         {
           name: 'type',
           type: 'enum',
-          enum: ['deposit', 'withdraw']
+          enum: ['deposit', 'withdraw', 'transfer']
+        },
+        {
+          name: 'sender_id',
+          type: 'uuid',
+          isNullable: true,
         },
         {
           name: 'created_at',
@@ -49,6 +54,14 @@ export class accountsTable1616682561481 implements MigrationInterface {
           referencedColumnNames: ['id'],
           onUpdate: 'CASCADE',
           onDelete: 'CASCADE'
+        },
+        {
+          name: 'FKStatementUserSender',
+          columnNames: ['sender_id'],
+          referencedTableName: 'users',
+          referencedColumnNames: ['id'],
+          onUpdate: 'SET NULL',
+          onDelete: 'SET NULL'
         }
       ]
     }))
